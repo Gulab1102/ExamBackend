@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+
+1.  npm install bootstrap-grid-only-css --save 
+then in angular.json styles put   "bootstrap-grid-only-css/dist/css/bootstrap-grid.min.css"
+
+use the class="bootstrap-wrapper" then regular for container or card
