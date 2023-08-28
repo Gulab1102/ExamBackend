@@ -1,0 +1,71 @@
+<!-- <div class="bootstrap-wrapper">
+	<div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h1>Menu</h1>
+            </div>
+            <div class="col-md-9">
+                <h1>Content</h1>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- <h1>Your Profiles details are </h1> -->
+
+<mat-card *ngIf="user">
+    
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+    
+    <div class="container">
+        <h1 >Your Profile Details</h1>
+      <!-- {{user| json}} -->
+
+        <div class="container text-center">
+            <img class="profile-img" src="https://brands.home-assistant.io/_/person/logo@2x.png" alt="">
+            <h1 style="margin-top: 20px;">{{user.firstName}} {{user.lastName}}</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <!-- table details -->
+                <table class="table text-center">
+                    <tr>
+                       <td>Username</td>
+                       <td> {{user.userName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Userid</td>
+                        <td>{{user.id}}</td>
+                     </tr>
+                   
+                     <tr>
+                        <td>Phone</td>
+                        <td>{{user.phone}}</td>
+                     </tr>
+                     <tr>
+                        <td>Role</td>
+                        <td>{{user.authorities[0].authority}}</td>
+                     </tr>
+                     <tr>
+                        <td>Status</td>
+                        <td>{{user.enabled}}</td>
+                     </tr>
+                </table>
+                
+            </div>
+           
+          
+        </div>
+
+    </div>
+
+        </div>
+    </mat-card-content>
+   
+    <div class="container text-center mt20 mb20" >
+        <button type="submit" mat-raised-button color="primary">Update</button>
+        <button type="reset" style="margin-left: 5px;" mat-raised-button color="accent">Share</button>
+     </div>
+    
+</mat-card>
