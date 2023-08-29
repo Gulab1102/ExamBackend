@@ -37,6 +37,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component';
+import { AddquestionComponent } from './pages/admin/addquestion/addquestion.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questi
     AddQuizComponent,
     UpdateQuizComponent,
     ViewQuestionsComponent,
+    AddquestionComponent,
   
   ],
   imports: [

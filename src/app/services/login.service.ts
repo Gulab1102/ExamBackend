@@ -11,7 +11,8 @@ export class LoginService {
 
   user:any={gkp:"gk"};
 
- baseUrl="http://localhost:8080";
+//  baseUrl="http://localhost:8080";
+baseUrl='https://exam-project-production.up.railway.app'
 
   constructor(private _httpclient: HttpClient) { }
 
