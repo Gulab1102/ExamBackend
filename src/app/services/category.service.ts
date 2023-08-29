@@ -13,6 +13,8 @@ export class CategoryService {
   public categories(){
    return this._httpclient.get(this.baseUrl+'/category/');
   }
-
+  public addCategory(category:any){
+    return this._httpclient.post(this.baseUrl+'/category/',category);
+   }
 
 }

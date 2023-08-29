@@ -29,6 +29,14 @@ import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import { QuizesComponent } from './pages/admin/quizes/quizes.component';
+import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +53,10 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category.co
     WelcomeComponent,
     ViewCategoriesComponent,
     AddCategoryComponent,
+    QuizesComponent,
+    AddQuizComponent,
+    UpdateQuizComponent,
+    ViewQuestionsComponent,
   
   ],
   imports: [
@@ -60,7 +72,10 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category.co
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatSlideToggleModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthIntercepterService, multi: true }
