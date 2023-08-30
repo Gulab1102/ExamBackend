@@ -38,6 +38,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component';
 import { AddquestionComponent } from './pages/admin/addquestion/addquestion.component';
+import { SidebarUserComponent } from './pages/user/sidebar-user/sidebar-user.component';
+import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { AddquestionComponent } from './pages/admin/addquestion/addquestion.comp
     UpdateQuizComponent,
     ViewQuestionsComponent,
     AddquestionComponent,
+    SidebarUserComponent,
+    LoadQuizComponent,
   
   ],
   imports: [
