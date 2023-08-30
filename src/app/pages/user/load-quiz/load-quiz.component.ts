@@ -20,24 +20,39 @@ export class LoadQuizComponent implements OnInit{
   }
 
   ngOnInit(): void {
-   this.catId=this._route.snapshot.params['catId'];
-   if(this.catId==0){
-    //load all the quiz
-
-  this._quiz.quizes().subscribe(
-    (data:any)=>{
-      this.quizes=data;
+   this._route.params.subscribe(
+    (params:any)=>{
+    //  console.log(params);
+      this.catId=params.catId;
+      if(this.catId==0){
+        //load all the quiz
+    
+      this._quiz.quizes().subscribe(
+        (data:any)=>{
+          this.quizes=data;
+        }
+        ,(error)=>{
+          this._snake.open("Something Went Wrong!",'',
+            {duration:3000,verticalPosition:'top',horizontalPosition:'right'});
+        }
+      )
+    
+       }
+       else{
+        //load the quiz with categ
+        this._quiz.getQuizByCategory(this.catId).subscribe(
+          (data:any)=>{
+            this.quizes=data;
+          }
+          ,(error)=>{
+            this._snake.open("Something Went Wrong!",'',
+              {duration:3000,verticalPosition:'top',horizontalPosition:'right'});
+          }
+        )
+       }
     }
-    ,(error)=>{
-      this._snake.open("Something Went Wrong!",'',
-        {duration:3000,verticalPosition:'top',horizontalPosition:'right'});
-    }
-  )
-
-   }
-   else{
-    //load the quiz with category
-   }
+   )
+ 
     
   }
 

@@ -29,4 +29,8 @@ export class QuizServiceService {
   public upDate(quiz:any){
     return this._httpclient.put(this.baseUrl+'/quiz/',quiz);
   }
+
+  public getQuizByCategory(cId:any){
+    return this._httpclient.get(this.baseUrl+'/quiz/category/'+cId);
+  }
 }
