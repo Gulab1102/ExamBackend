@@ -1,0 +1,82 @@
+<div class="bootstrap-wrapper" *ngIf="!isSubmited">
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-md-2">
+   <h3>Intructions</h3>
+        </div>
+        <div class="col-md-8">
+            <h2 style="margin-top: 10px;">Quiz of {{questions[0].quiz.title}}</h2>
+          <mat-card class="mt20" *ngFor="let q of questions, let i=index">
+            <mat-card-content>
+                <p>Q {{i+1}}) <span class="ml20" [innerHTML]="q.content"></span> </p>
+                <mat-divider></mat-divider>
+                <br>
+                <div class="row mt10">
+                    <div class="col-md-6">
+                  <input [(ngModel)]="q.givenanswer" type="radio" [value]="q.option1" name="i"
+                  >{{q.option1}}
+                    </div>
+
+                    <div class="col-md-6">
+                        <input [(ngModel)]="q.givenanswer" type="radio" [value]="q.option2" name="i"
+                        >{{q.option2}}
+                    </div>
+                </div>
+
+
+
+                <div class="row mt20">
+                    <div class="col-md-6">
+                        <input [(ngModel)]="q.givenanswer" type="radio" [value]="q.option3" name="i"
+                        >{{q.option3}}
+                    </div>
+
+                    <div class="col-md-6">
+                        <input [(ngModel)]="q.givenanswer" type="radio" [value]="q.option4" name="i"
+                        >{{q.option4}}
+                        
+                    </div>
+                </div>
+
+            </mat-card-content>
+          </mat-card>
+          <div class="container text-center mt20">
+            <button (click)="submitQuiz()"  mat-raised-button color="accent" >Submit Quiz</button>
+          </div>
+
+        </div>
+        <div class="col-md-2">
+
+        </div>
+
+    </div>
+    </div>
+
+</div>
+
+
+
+<div class="bootstrap-wrapper" *ngIf="isSubmited">
+    <div class="container-fluid">
+        <div class="row mt20">
+      <div class="col-md-3 offset-md-5">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    Quiz Result
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <h3>Marks got : {{marksGot}}</h3>
+                <h3>Number Of Question attempted : {{attempted}}</h3>
+                <h3>Correct Answer : {{correctAnswer}}</h3>
+            </mat-card-content>
+        </mat-card>
+      </div>
+
+    </div>
+    </div>
+
+</div>
+
+
