@@ -20,6 +20,8 @@ export class StartQuizComponent implements OnInit{
   qId:any;
   questions:any
 
+  timer:any
+
   constructor(private _route: ActivatedRoute,private _quest:QuestionService,private _quiz:
      QuizServiceService,private _snake :MatSnackBar,private locationst:LocationStrategy){
 
@@ -32,9 +34,12 @@ this.qId=this._route.snapshot.params['qId'];
    this._quest.getQuestionsOfQuizforTest(this.qId).subscribe(
     (data:any)=>{
       this.questions=data;
+      this.timer=this.questions.length*2*60;
       this.questions.forEach((q:any) => {
         q['givenanswer']='';
+        
       });
+      this.startTimer();
      // console.log(this.questions);
     },(error)=>{
       
@@ -64,30 +69,59 @@ this.qId=this._route.snapshot.params['qId'];
       showCancelButton: true,
       confirmButtonText: 'Submit'
     }).then((result) => {
-      this.isSubmited=true;
-       this.attempted=0;
-       this.marksGot=0;
-       this.correctAnswer=0;
-      this.questions.forEach((q:any)=>{
-        if(q.givenanswer==q.answer){
 
-          this.correctAnswer++;
-
-         this.marksGot+= this.questions[0].quiz.maxMarks/this.questions.length;
-         
-        }
-        if(q.givenanswer.trim()!=''){
-
-          this.attempted++;
-
-        // this.marksGot+= this.questions[0].quiz.maxMarks/this.questions.length;
-         
-        }
-        console.log(this.attempted);
-      })
-     
+       this.eval();
     })
 
+  }
+
+
+
+  public eval(){
+    this.isSubmited=true;
+    this.attempted=0;
+    this.marksGot=0;
+    this.correctAnswer=0;
+   this.questions.forEach((q:any)=>{
+     if(q.givenanswer==q.answer){
+
+       this.correctAnswer++;
+
+      this.marksGot+= this.questions[0].quiz.maxMarks/this.questions.length;
+      
+     }
+     if(q.givenanswer.trim()!=''){
+
+       this.attempted++;
+
+     // this.marksGot+= this.questions[0].quiz.maxMarks/this.questions.length;
+      
+     }
+     console.log(this.attempted);
+   })
+  
+  }
+
+  startTimer(){
+  let t=  window.setInterval(()=>{
+      if(this.timer<=0){
+        this.eval();
+        clearInterval(t);
+      }else{
+        this.timer--;
+      }
+    },
+    1000)
+  }
+
+  getFormat(){
+    let mm=Math.floor(this.timer/60);
+    let ss=this.timer-mm*60;
+    return mm  +': min ' + ss +': sec';
+  }
+
+  percentage(){
+   return  (this.timer/(this.questions.length*2*60))*100
   }
 
 }

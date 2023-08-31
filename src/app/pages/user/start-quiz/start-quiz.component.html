@@ -1,4 +1,4 @@
-<div class="bootstrap-wrapper" *ngIf="!isSubmited">
+<div class="bootstrap-wrapper" *ngIf="!isSubmited && questions.length">
     <div class="container-fluid">
         <div class="row">
         <div class="col-md-2">
@@ -46,6 +46,24 @@
 
         </div>
         <div class="col-md-2">
+            <h2 style="margin-top: 10px;">Timer</h2>
+            <mat-card class="mt20">
+                <mat-card-header>
+                    <mat-card-title>
+                        Progress
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        Quiz will automatically submitted when timer riches 0:0
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <h2>{{getFormat()}}</h2>
+                    
+                <mat-spinner color="accent" style="margin: auto; margin-top: 20px;" mode="determinate" value="{{percentage()}}">
+                </mat-spinner>
+                   
+                </mat-card-content>
+            </mat-card>
 
         </div>
 
@@ -56,7 +74,7 @@
 
 
 
-<div class="bootstrap-wrapper" *ngIf="isSubmited">
+<div class="bootstrap-wrapper" *ngIf="isSubmited && questions.length">
     <div class="container-fluid">
         <div class="row mt20">
       <div class="col-md-3 offset-md-5">
@@ -71,6 +89,29 @@
                 <h3>Number Of Question attempted : {{attempted}}</h3>
                 <h3>Correct Answer : {{correctAnswer}}</h3>
             </mat-card-content>
+        </mat-card>
+      </div>
+
+    </div>
+    </div>
+
+</div>
+
+
+
+
+<div class="bootstrap-wrapper" *ngIf="!questions.length">
+    <div class="container-fluid">
+        <div class="row mt20">
+      <div class="col-md-3 offset-md-5">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                 There is no question in this Quiz
+                 <br>
+                </mat-card-title>
+            </mat-card-header>
+            
         </mat-card>
       </div>
 

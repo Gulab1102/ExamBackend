@@ -15,7 +15,8 @@
          color="accent" >Logout</a>
          <a style="margin-left: 10px;" *ngIf="loggedin"
          mat-raised-button 
-         routerLink="/admin/profile"
+       
+         (click)="Submit()"
          color="accent" >{{currentuser}}</a>
     </span>
 

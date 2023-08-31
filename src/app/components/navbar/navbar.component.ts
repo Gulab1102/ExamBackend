@@ -11,6 +11,8 @@ export class NavbarComponent implements OnInit{
 
   currentuser='';
   loggedin=false;
+
+  user:any;
   constructor(public loginservice: LoginService,private router: Router){
 
   }
@@ -21,7 +23,7 @@ export class NavbarComponent implements OnInit{
     this.loginservice.getCurrentUser().subscribe(
       (user:any)=>{
          this.currentuser=user.userName;
-         
+         this.user=user;
        
 
       },(error)=>{
@@ -37,6 +39,7 @@ export class NavbarComponent implements OnInit{
           console.log(user);
           
            this.currentuser=user.userName;
+           this.user=user;
            
          
   
@@ -55,4 +58,10 @@ export class NavbarComponent implements OnInit{
   this.router.navigate(['login']);
 
   }
+  Submit(){
+    if(this.user.authorities[0].authority=='NORMAL')
+    this.router.navigate(['user-dashboard/normal/profile'])
+  else if(this.user.authorities[0].authority==='ADMIN') this.router.navigate(['admin/profile'])
+  }
+
 }

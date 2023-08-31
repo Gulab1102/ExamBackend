@@ -105,7 +105,7 @@ const routes: Routes = [
      },
      {
       
-      path:'profile',
+      path:'normal/profile',
       component:ProfileComponent
       
     

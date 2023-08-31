@@ -42,6 +42,7 @@ import { SidebarUserComponent } from './pages/user/sidebar-user/sidebar-user.com
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstructiosComponent } from './pages/user/instructios/instructios.component';
 import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component
     MatListModule,
     MatSlideToggleModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthIntercepterService, multi: true }
