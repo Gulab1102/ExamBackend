@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +8,8 @@ import { Injectable } from '@angular/core';
 export class UserService {
 
 
- // baseUrl="http://localhost:8080";
- baseUrl='https://exam-project-production.up.railway.app'
+  baseUrl= environment.baseUrl;
+  //baseUrl='https://exam-project-production.up.railway.app'
 
   constructor(private _httpclient: HttpClient) { }
 public addUser(user:any){

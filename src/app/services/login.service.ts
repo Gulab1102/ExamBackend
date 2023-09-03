@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
+import { environment } from '../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,8 +13,8 @@ export class LoginService {
 
   user:any={gkp:"gk"};
 
-//  baseUrl="http://localhost:8080";
-baseUrl='https://exam-project-production.up.railway.app'
+ // baseUrl="http://localhost:8080";
+ baseUrl= environment.baseUrl;
 
   constructor(private _httpclient: HttpClient) { }
 
