@@ -1,5 +1,5 @@
 export const environment ={
 production : false,
-baseUrl: 'http://localhost:8080'
+baseUrl: 'https://exam-project-production.up.railway.app'
 
 };
